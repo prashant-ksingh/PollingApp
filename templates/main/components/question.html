@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% include "main/components/navbar.html" %}
+
+<div class="container">
+    <div class="row">
+        <h4>{{ question.content }}</h4>
+     </div>
+    
+     <div class="row">
+        <div class="col-6">
+            <div class="collection">
+                {% for choice in question.choice_set.all  %}
+                <label>
+                    <input name="group1" type="radio" />
+                    <span>{{choice.content}}</span>
+                  </label>
+                {% endfor %}
+              </div>
+        </div>
+     </div>
+
+     <div class="row">
+        <button class="btn waves-effect waves-light" type="submit" name="action">
+            Submit
+        </button>
+     </div>
+</div>
+
+{% endblock %}
